@@ -15,6 +15,6 @@ If you scroll down to the bottom of the GitHub Page there is a link to our Colab
 
 Technologies/Libraries used:
 - Python
-- Goolge Colab
+- Google Colab
 - pandas
 - sklearn
