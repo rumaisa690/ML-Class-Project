@@ -8,7 +8,7 @@ We used data collected from the NASA API, with our dataset containing around 40 
 
 We implemented feature selection on our dataset using Lasso Regression and classification using the Random Forest model and Logistic Regression as well as visualizing quantitative metrics like Logarithmic Loss, AUC-ROC, and F1 Score.
 
-** My Contribution **
+## My Contribution
 I personally worked on training and fine-tuning the two ML models of Random Forest and Logistic Regression as well as using the Logarithmic Loss and AUC-ROC algorithms on our results.
 If you scroll down to the bottom of the GitHub Page there is a link to our Colab notebook with our code, I coded sections 1, 3, 4, 5.
 
