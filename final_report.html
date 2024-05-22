@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Midterm Report</title>
+    <style>
+        h1 {
+            text-align: Center;
+            font-size: 35px;
+            -webkit-text-fill-color: blueviolet;
+        }
+        p1, p2, p3, p4, p5, p6, p7, p8, p9, p13 {
+            font-size: 20px;
+            font-style: bold;
+        }
+        p {
+            margin-left: 1400px;
+            font-size: 17px;
+        }
+        tr {
+            border-bottom: 1px solid;
+        }
+
+        p18, p19 {
+            font-size: 18px;
+        }
+        table {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <p>
+        <a href="index.html">Go Home</a>
+    </p>
+    <h1>Final Report</h1>
+    <div>
+        <p1><b>Introduction/Background</b></p1>
+        <div>
+            <p10>
+                <br>
+                For generations, asteroid identification has been foundational in astronomical research. The classification of asteroids, 
+                particularly distinguishing those deemed hazardous, holds significant importance not only in protecting our planet from potential 
+                threats but also in deepening our comprehension of the universe. Every year, over 100 near-Earth asteroids come close to collision 
+                with the planet. Even more concerning is the fact that the number of near-Earth objects (NEOs) that approach with no warning has
+                increased every year. Our project aims to develop a model that classifies asteroids as hazardous or non-hazardous using data 
+                pre-processing methods and supervised learning algorithms. Utilizing data from the NASA API, our dataset includes features like 
+                absolute magnitude and relative velocity to develop a robust model that automatically identifies hazardous asteroids.
+            </p10>
+        </div>
+    </div>
+    <div>
+        <p2><br><b>Problem Definition</b></p2>
+        <div>
+            <p11>
+                <br>
+                With thousands of asteroids traversing our universe, the need for efficient methods to identify hazardous objects is important in 
+                supporting the astronomical field in research, exploration, and real-time monitoring. Understanding the risks posed by asteroids 
+                enables scientists to develop strategies to mitigate potential impacts, protecting life and infrastructure. Moreover, researching 
+                the characteristics of hazardous asteroids provides insights into their composition, behavior, and evolution, which contribute to 
+                broadening our understanding of space [2]. Furthermore, real time monitoring of these hazardous asteroids can help scientists to track 
+                the object's trajectory and evaluate potential impacts on Earth or satellites. Our project aims to use machine learning techniques to 
+                identify hazardous asteroids, protecting the Earth and supporting astronomical research.
+            </p11>
+        </div>
+    </div>
+    <div>
+        <p3><br><b>Data Collection</b></p3><div><br>
+            <p12>
+                We compiled a dataset from NASA's Jet Propulsion Laboratory NEO Web Service focusing on a variety of features that may contribute to 
+                the likelihood of a hazardous asteroid.
+            </p12>
+        </div>
+    </div>
+    <br>
+    <div><p4><b>Methods</b></p4></div><br>
+    <div><p21>
+        Our approach consisted of three parts and three models: feature selection using Lasso Regression and classification using the
+        Random Forest model and Logistic Regression    </p21></div><br>
+    <div><p21>
+        Feature Selection using Lasso Regression (L1 Regularization): Lasso Regression penalizes the absolute size of coefficients (shrinking some to zero)
+        and therefore selects a subset of features that are most significant for our predictions. Feature reduction reduces overfitting and feature redundancy.
+        From this, we divided our dataset into three subsets based upon the number of significant features identified (2, 4, 6 features).
+    </p21></div><br>
+    <div><p21>
+        Classification using Random Forest: After feature selection and identifying significant features, we chose to utilize the Random Forest 
+        algorithm to classify asteroids into hazardous and non-hazardous categories. We chose Random Forest due to its efficiency in handling large 
+        datasets with a large number of features and its ability to deal with overfitting. We then trained the model against four datasets: initial 
+        dataset, the dataset of the two most significant features, the dataset of the four most significant features, and the dataset of the six most 
+        significant
+    </p21></div><br>
+
+    <div><p21>Classification Using Logistic Regression: We wanted to test our feature selection and significant features with one more model.
+        We chose to utilize Logistic Regression, as this model determines if an input belongs to one of the two categories by fitting a logistic
+        curse to the data. We believe this was suitable for our dataset, since Logistic Regression is likely used for binary classification
+        problems because it handles both linear and nonlinear relationships between the input features and the target variable. We will also
+        compare the Logistic Regression model with the Random Forest on our dataset.</p21></div><br>
+
+    <div><p13><b>Results and Discussion</b></div><br></p13>
+
+
+    <div></div><p18><b>Pre-Processing</b></div><br></p18>
+    <div><p21> We implemented L1 Regularization, also known as Lasso Regression. In Lasso, the coefficients represent the weights assigned to
+         each feature in the dataset. These weights indicate the strength of the relationship between each feature and the target variable. By
+          shrinking some of the coefficients, it effectively performs feature selection. Features that have non-zero coefficients are considered
+           important by the model. On the other hand, features with zero coefficients are effectively removed from the model.
+        </p21></div><br>
+    <div><p21>We began by loading our dataset and partitioning it into three distinct subsets. These three subsets were differentiated by the number
+         of significant features identified, with 2, 4, and 6 features selected respectively. We then used the Lasso Regression model on our
+          dataset to identify the most significant features and extract their coefficients. The following 3 tables show the 3 different subsets
+           and the number of significant features along with their coefficients.
+        </p21></div><br>
+    
+    <div>
+        <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">2 Significant Features</th>
+            </tr>
+            <tr>
+                <th>Feature</th>
+                <th>Coefficients</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Orbit ID</td>
+                    <td style="text-align: center;">0.102693737994879</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Eccentricity</td>
+                    <td style="text-align: center;">0.05620559452874166</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 1: 2 Selected Significant Features by Lasso</i></p21>
+        <br>
+        <br>
+        
+        <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">4 Significant Features</th>
+            </tr>
+            <tr>
+                <th>Feature</th>
+                <th>Coefficients</th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Orbit ID</td>
+                <td style="text-align: center;">0.102693737994879</td>
+                    
+    
+            </tr>
+            <tr>
+                <td style="text-align: center;">Eccentricity</td>
+                <td style="text-align: center;">0.05620559452874166</td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center;">Relative Velocity km per sec</td>
+                <td style="text-align: center;">0.02919780485734222</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Jupiter Tisserand Invariant</td>
+                <td style="text-align: center;">0.016816764488312937</td>
+            </tr>
+        </table>
+        <p21><i>Table 2: 4 Selected Significant Features by Lasso</i></p21>
+        <br>
+        <br>
+
+        <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">6 Significant Features</th>
+            </tr>
+            <tr>
+                <th>Feature</th>
+                <th>Coefficients</th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Orbit ID</td>
+                <td style="text-align: center;">0.102693737994879</td>
+                    
+    
+            </tr>
+            <tr>
+                <td style="text-align: center;">Eccentricity</td>
+                <td style="text-align: center;">0.05620559452874166</td>
+
+            </tr>
+            <tr>
+                <td style="text-align: center;">Relative Velocity km per sec</td>
+                <td style="text-align: center;">0.02919780485734222</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Jupiter Tisserand Invariant</td>
+                <td style="text-align: center;">0.016816764488312937</td>
+            <tr>
+                <td style="text-align: center;">Epoch Osculation</td>
+                <td style="text-align: center;">0.012679383013517162</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Mean Anomaly</td>
+                <td style="text-align: center;">0.011852957365368087</td>
+            </tr>
+        </table>
+        <p21><i>Table 3: 6 Selected Significant Features by Lasso</i></p21>
+
+        <div><br>
+            <p21>After identifying the significant features, we wanted to use regression evaluation metrics to see how well our model did. The table below summarizes 
+                the Mean Squared Error and Mean Absolute Error.</p21>
+        </div><br>
+        <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Evaluate Lasso</th>
+            </tr>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Mean Squared Error</td>
+                    <td style="text-align: center;">0.130630264346380732</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Mean Absolute Error</td>
+                    <td style="text-align: center;">0.25076738020929346</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 4: Evaluation Metrics for Lasso</i></p21>
+        
+    </div><br>
+
+    <div>
+        <p21>The MSE is relatively low, indicating that the Lasso model provides relatively accurate predictions. Similarly, the MAE is also relatively 
+            low, demonstrating better predictive accuracy with smaller differences between actual and predicted values. These evaluations suggest that 
+            our model is effectively capturing the relationships between the selected features and the hazardous classification of asteroids.  
+        </p21>
+    </div><br>
+
+    <div></div><p19><b>Training Using Random Forest</b></div><br></p19><br>
+    <div><p21> We chose to use Random Forest as our machine learning model for its strong performance when handling large datasets with high dimensionality, exemplified by our dataset which consists 
+        of 36 features. Using this model, we aimed to correctly classify data points across our various datasets with a high accuracy. We trained our model on four different datasets – 
+        the initial dataset, the dataset of the two most significant features, the dataset of the four most significant features, and the dataset of the six most significant features. Below are the results 
+        from our model:
+        </p21></div><br>
+    
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Initial Dataset Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.9957333333333334</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3734</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 5: Results from using Random Forest of the intial dataset</i></p21>
+        <br>
+        <br>
+        
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Two Selected Features Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.8229333333333333</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3086</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 6: Results from using Random Forest of the two selected features</i></p21>
+        <br>
+        <br>
+    
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Four Selected Features Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.8493333333333334</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3185</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 7: Results from using Random Forest of the four selected features</i></p21>
+        <br>
+        <br>
+    
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Six Selected Features Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.8501333333333333</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3188</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 8: Results from using Random Forest of the six selected features</i></p21>
+        <br>
+        <br>
+
+    <div><p21> Given the above accuracies from our random forest model, we can note that the model performed best when given more features to train on. The model produced the most accurate 
+        results when given the entire dataset, including all features. Of the three datasets created using feature selection, our model produced the least accurate results when trained on 
+        only two selected features, and produced the most accurate results when given the dataset of six selected features. 
+        </p21></div><br>
+
+    <div><p21> These results indicate that there might be potentially important patterns between features that cannot be captured when the number of features is reduced. Given more features, the 
+        model has more information to train on, potentially resulting in a higher accuracy. The two feature dataset provided the model with the least information and also results in the lowest accuracy. 
+        When provided with the four feature dataset, the accuracy increased from that of the two feature dataset. This trend continued, as the accuracy increased further when the model was trained on 
+        the six feature dataset. Finally, the model produced the highest accuracy when trained on the full dataset consisting of all features, demonstrating how more information allows the model to detect
+        influential patterns.
+        </p21></div><br> 
+
+    <div><p21> These results could also be a result of overfitting. When given feature-selected datasets, models are less prone to overfitting and therefore may produce less accurate results. 
+        This could explain lower accuracy produced by the model when trained on feature selected datasets. The high accuracy produced by the dataset including all features may be a result of 
+        the model overfitting to the training data, but not necessarily on unseen data. Thus, while the model appears to perform best when given more features, we cannot conclude which dataset 
+        is best until tested on unseen data.
+        </p21></div><br>
+    
+   <p19><b> Random Forest Quantitative Metrics</b></div><br></p19><br>
+    <div><img src="graphs_random_forest.png" alt="Quantitative Metrics Data" style="width:900px;height:300px;"></div>
+    <div><p21> We used logarithmic loss to measure the performance of the models trained on different datasets. Lower values of loss are going to 
+        indicate better performance. We also tested the metric Area Under the Curve(AUC-ROC), which compares the true positive rate against the false 
+        positive rate. Higher AUC values indicate better model performance. Finally, we calculated the F1 score for the Random Forest model trained on 
+        the various datasets. F1 scores provide important information on the precision of the model, with a F1 score closer to 1 indicating better 
+        precision and a score of 0 indicating worse performance. 
+        </p21></div><br>
+    <div><p21> Observing the graph on the left, it is evident that the model trained on the initial dataset has a significantly lower logarithmic loss 
+        compared to models trained with two, four, and six of the most significant features selected. However, we can also see that the inclusion of more 
+        significant features leads to a slight reduction in logarithmic loss. Since lower values of loss indicate better performance, the model trained 
+        on the initial dataset without feature selection has a notably higher predictive accuracy compared to models trained with feature selection.
+        </p21></div><br>
+    <div><p21> Shifting our attention to the middle graph, we see that the model trained on the initial dataset has a higher Area Under the Curve 
+        (AUC-ROC) value in contrast to the models trained with two, four, and six of the most significant features selected. Moreover, we can also 
+        see how the inclusion of more significant features selected leads to a higher AUC-ROC value. Since higher AUC values indicate better model 
+        performance, the model trained on the initial dataset without feature selection has a higher predictive accuracy compared to models trained 
+        with feature selection.
+        </p21></div><br>
+    <div><p21> Finally, the graph on the right visualizes the calculated F1 scores for the Random Forest model.  We can take note that Random Forest 
+        performs exceptionally well with the full initial feature set (as provided with the score of 0.98), and that its performance drops significantly
+        when we reduce features. This indicates that certain information that may be critical is required for prediction and we lose that information 
+        when we select fewer features. This could be a potential flaw in the feature selection algorithms we used to decide the critical features or in 
+        general can be an issue when reducing the number of features we use for predictions. 
+        </p21></div><br>
+    <div><p21> Through these quantitative assessments of model performance, we can conclude that an increase in the number of most significant features 
+        correlates with improved model performance; however, the model performs significantly better without feature selection. This discrepancy occurs 
+        due to the loss of valuable information in the discarded features during the selection process, thus leading to diminished predictive accuracy. 
+        However, by using feature selection, we reduce the dataset’s feature dimensionality, thus allowing the model’s runtime to decrease significantly. 
+        Therefore, this preprocessing strategy depicts the trade-off between runtime efficiency and predictive accuracy. 
+        </p21></div><br>
+    
+    <div>
+        <p19><b>Training Using Logistic Regression</b></div><br></p19>
+        <div><p21>Seeking to compare assessments of our feature selection methods and the efficacy of our chosen features,
+            we introduced an additional model for comparison with Random Forest. By incorporating a new model into our analysis,
+            we aimed to evaluate both models and their performance against our dataset. This approach gives us a deeper understanding
+            of how our selected features influence model predictions regarding the most suitable model of our specific asteroid
+            classification task. </p21></div><br>
+
+        <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Initial Dataset Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.8410666666666666</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3154</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 9: Results from using Logistic Regression of the intial dataset</i></p21>
+        <br>
+        <br>
+        
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Two Selected Features Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.8330666666666666</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;"> 3124</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 10: Results from using Logistic Regression of the two selected features</i></p21>
+        <br>
+        <br>
+    
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Four Selected Features Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;">0.8333333333333334</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3125</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 11: Results from using Logistic Regression of the four selected features</i></p21>
+        <br>
+        <br>
+    
+    <table border="1">
+            <tr>
+                <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Six Selected Features Accuracy</th>
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Overall Accuracy</td>
+                    <td style="text-align: center;"> 0.8344</td>
+    
+            </tr>
+            <tr>
+                    <td style="text-align: center;">Correctly predicted data points</td>
+                    <td style="text-align: center;">3129</td>
+
+            </tr>
+        </table>
+        <p21><i>Table 12: Results from using Logistic Regression of the six selected features</i></p21>
+        <br>
+        <br>
+
+    <div><p21>Given the above accuracies from our logistic regression model, we can note that the model performed best when given more features to train on. The initial dataset containing all
+        36 features reached an accuracy of 84.11% and correctly predicted 3,154 data points. This shows the model performed well when trained on the entire dataset without any feature selection.
+        These results could also be observed because of how the algorithm of Logistic Regression is more accurate when given comprehensive input data with its predictive ability.
+    </p21></div><br>
+
+    <div><p21>When our preprocessing method of feature selection was applied to split the dataset into sets where the 2, 4, and 6 most important features were selected, there was a corresponding
+        change in accuracy of the overall model. Of the three datasets created using feature selection, the logistic regression model produced the least accurate results when trained on only
+        two selected features, and produced the most accurate results when given the dataset of six selected features. The dataset with two features selected had an accuracy of 83.31% and
+        this reduction in accuracy could be because cutting down the dataset to only two features reduced the predictive power of the logistic regression model. Looking at the datasets
+        with 4 and 6 most important features selected, the dataset with six features has a slightly higher accuracy but between the two the accuracy percentage remains relatively stable.
+        The dataset with four features has 83.33% accuracy and the dataset with six features has 83.4% accuracy, showing how selecting more features contributes positively to the model’s performance.</p21></div><br>
+
+    <div><p21>These results indicate that there might be potentially important patterns between features that cannot be captured when the number of features is reduced.  Preprocessing techniques like
+         the one we used; feature selection, might have removed valuable information and eliminated features that included important predictive signals in its aim to simplify the dataset.
+          It’s also possible that certain features, although not deemed important by the feature selection algorithm, contribute significantly to the overall accuracy of predictions and were
+           not included in the preprocessed dataset. Another reason for this could be that the initial dataset might have fully captured the interactions between different features that contribute
+            to predictive accuracy and preprocessing methods only prioritize features based on their individual importance. This could be why the model performed best on the initial dataset where it had access
+             to all 36 features and relations between them, and the accuracy consistently decreased as the datasets it was trained on were selected for fewer features.</p21></div><br>
+
+    <div><p21>Overall, the results we have seen show that while feature selection can help with computational complexity and streamlining the model, it may not lead to improvements in predictive accuracy.
+         The preprocessed data sets might have contained the model’s capacity to learn more complex decision boundaries because of reduced creature space. However, we can’t overlook the possibility that
+          these results could be a result of overfitting as well where the models have higher accuracy on the initial dataset because of overfitting to the larger data set.</p21></div><br>
+
+    <p19><b>Logistic Regression Quantitative Metrics</b></div><br></p19><br>
+
+    <div><img src="graphs_logistic_Regression.png" alt="Quantitative Metrics Data" style="width:900px;height:300px;"></div>
+
+    <div><p21> The leftmost graph visualizes the logarithmic loss for the Logistic Regression model run on our four datasets. The largest logarithmic 
+        loss was produced when the model was run on the initial dataset containing all features. This could indicate that the initial dataset contains 
+        misleading or irrelevant features that prevent the model from accurately classifying near-Earth objects. From the remaining three datasets with 
+        selected features, the logarithmic loss remained relatively constant at a value lower than the log loss of the initial dataset. This could 
+        indicate that the model performs better as a result of feature reduction and benefits from removing noise or irrelevant features.  
+        </p21></div><br>
+    <div><p21> The middle graph shows how our Logistic Regression model performed by examining the Area Under the Curve (AUC-ROC). Our model’s AUC-ROC 
+        score was the lowest for the initial dataset with all features included. An AUC-ROC score of 0.5 suggests that the model has no discriminative 
+        ability. As shown, the initial dataset received an AUC-ROC score of near 0.5 indicating that the dataset contained unnecessary features that 
+        hindered the model’s ability to accurately classify objects. On the other hand, the remaining three datasets with selected features performed 
+        consistently better than the initial dataset, with much higher AUC-ROC scores all around. The AUC-ROC scores of these three datasets remained 
+        relatively constant, increasing only slightly as the number of selected features increased, exemplifying the benefit of feature selection for 
+        this model. 
+        </p21></div><br>
+    <div><p21> Finally, we calculated the F1 score on our Logistic Regression model to measure its precision. From our results, we notice our model 
+        struggled across all configurations but especially with a full feature set, as it starts at 0.0. The F1 scores only improve slightly with 
+        additional features. This might be harder to pinpoint because it could be a result of poor feature scaling, model parameter settings or a class 
+        imbalance or even a mismatch between model’s capacity and complexity of the dataset. We do know that Logistic Regression is sensitive to feature 
+        scaling and relevance of input features meaning the performance can change significantly from irrelevant features or improper scaling. This leads 
+        us to conclude that the Random Forest model was highly effective for the application we wanted to achieve with a complete feature set and that 
+        with Logistic Regression we may need to reconsider our approach with this model or our preprocessing techniques. 
+        </p21></div><br>
+    <div><p21> From our quantitative metrics, we can conclude that our Logistic Regression model benefits from feature selection. Across all three 
+        metrics, we found that our model performed the worst when given the full feature dataset. We were able to improve our metric scores by running 
+        our model on feature selected datasets. Of the three remaining datasets, we noticed a slight improvement in performance as the number of selected 
+        features increased. This could indicate that the irrelevant features have been selected out, and that the model's performance can be improved 
+        further by including a greater number of selected features in the dataset.
+        </p21></div><br>
+
+    <div><p19><b>Overall Analysis</b></div><br></p19>
+    <div><p21>Random Forest Model</p21></div>
+    <ul>
+        <li>Logarithmic Loss: Achieves the lowest log loss on the initial dataset with a value of 0.06666 and the log loss increases
+            as the number of features decreases which indicates a decline in model effectiveness with feature reduction.</li>
+        <li>AUC-ROC: Achieves a significantly large AUC-ROC score of 0.998 on the initial dataset which progressively increases as more
+            features are added. This showcases better discrimination between classes with more information.</li>
+        <li>F1 Score: Achieves a large F1 score for the initial dataset (0.981) and significantly drops in score as the number of features
+            is reduced. This showcases the loss of critical information impacting the precision and recall of the model</li>
+    </ul>
+    <div><p21>Logistic Regression Model</p21></div>
+    <ul>
+        <li>Logarithmic Loss: Showcases a moderate log loss value for the initial dataset (0.4357) with marginally small improvements
+            as features are added proving a slow gain in efficiency </li>
+        <li>AUC-ROC: Starts with a value of 0.559 and improves as more features are added. Peaks at 0.762 with four features. This only proves
+            that the model calibration is better with additional information but these values are not substantial in comparison to Random Forest</li>
+        <li>F1 Score: Begins with a score of 0.0 with the initial dataset which explains that the model failed to correctly predict any positive
+             class samples initially but the score slightly improves as more features are added. There seems to be a challenge with this
+              model in achieving a substantial balance between precision and recall</li>    
+    </ul>
+    <div><p21>Conclusion</p21></div>
+    <ul>
+        <li>Random Forest performed exceptionally well and outperforms Logistic Regression across all three metrics with higher predictive
+            accuracy and better handling of class differentiation. The abnormally low F1 score for Logistic Regression indicates a weakness
+            in the Logistic Regression model with the inability to predict minority classes effectively which would not have been showcased
+            by Log Loss and AUC-ROC alone. The Feature Selection provides a trade-off between runtime efficiency and predictive accuracy
+            which is showcased by a decline in F1 scores indicating the potential importance of the discarded information. </li>
+    </ul>
+
+    
+    
+    <div></div><p19><b>Next Steps</b></div><br></p19><br>
+    <div>
+    <div><p21> As we consider our next steps moving forward, we will take into account the results we gathered from our current findings using the Random Forest training model, our feature selection model,
+        and our quantitative measurements using LR and AUC-ROC. We can experiment with other Feature Selection methods for our data preprocessing to get new insights into potential model performance improvement.
+        We will continue attempting to use other machine learning models (such as Support Vector Machines, Logistic Regression, and Naive Bayes) and compare their performance to Random Forest to then see if
+        we can improve on performance in handling large datasets with high dimensionality. We can then continue to experiment with the number of features we wish to select to both enhance accuracy and reduce
+        runtime efficiency. As we've seen with our quantitative metrics, the model trained with the initial dataset has significantly lower logarithmic loss and higher Area Under the Curve (AUC-ROC) value
+        as compared to our most significant feature selection datasets. This tells us to look back to our data preprocessing step to ensure that we are not overlooking any significant features and potentially
+        using other feature-selection methods to do this. Furthermore, we can expand our quantitative metrics to test for other metrics such as precision and F1. Lastly, we need to ensure that we test our
+        models on unseen datasets to allow us to validate our models to check for overfitting and predictability in the real-world.
+
+        </p21></div>
+
+    <div>
+        <p6><br><b>Proposed Timeline</b></p6>
+        <div>
+            <p15>
+                <br>
+                    <a href="https://docs.google.com/spreadsheets/d/1XWseJ3W_MlCoIwANlkqVwRIXEJAhxAYA/edit#gid=1432696595" style="font-size: 20px;">GanttChart</a>
+                    <div>
+                        <img src="last_gantt_chart.png" alt="Team filled out a GanttChart" style="width:1000px;height:300px;">
+                    </div>
+            </p15>
+        </div>
+    </div>
+    <div>
+        <p7><br><b>Contribution Table</b></p7>
+        <div>
+            <br>
+            <p16>
+                <table border="1">
+                    <tr>
+                        <th colspan="3", style= "border: transparent; background-color:rgb(181, 106, 251);">Final Report Contribution</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Update Introduction & Background</td>
+                        <td style="text-align: center;"> Katerina </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Data Processing and Methods</td>
+                        <td style="text-align: center;"> Mariam </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Feature Selection: Implementation & Coding</td>
+                        <td style="text-align: center;"> Hira </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Regression Evaluation Metrics</td>
+                        <td style="text-align: center;"> Hira </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Model 1 (Random Forest) Selection </td>
+                        <td style="text-align: center;"> Rumaisa </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">M2 (Logistic Regression) Selection </td>
+                        <td style="text-align: center;"> Mariam </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">M1 Results Evaluation</td>
+                        <td style="text-align: center;"> Hana, Katerina, Mariam </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Log Loss Implementation</td>
+                        <td style="text-align: center;"> Rumaisa </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">AUC-ROC Implementation</td>
+                        <td style="text-align: center;"> Rumaisa </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Metrics Discussion & Analysis</td>
+                        <td style="text-align: center;"> Hana </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">M1 Results Evaluation</td>
+                        <td style="text-align: center;"> Hana, Katerina, Mariam </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Update Gantt & Contribution Charts</td>
+                        <td style="text-align: center;"> Hana </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Update GitHub Page</td>
+                        <td style="text-align: center;"> Hira, Hana, Katerina, Mariam </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">F1 Score Implementation</td>
+                        <td style="text-align: center;" >Mariam</td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align: center;" >Model 2 (Logistic Regression) Selection</td>
+                        <td style="text-align: center;" >Mariam</td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align: center;" >Model 1 & Model 2 Implementation & Coding</td>
+                        <td style="text-align: center;" >Rumaisa</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" >M2 Results Evaluation</td>
+                        <td style="text-align: center;" >Hana, Katerina, Mariam</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" >Updating Presentation Slides</td>
+                        <td style="text-align: center;" >Hira, Hana, Katerina, Mariam</td>
+                    </tr>
+                
+                </table>
+            </p16>
+        </div>
+        
+        <p8><br><b>Presentation</b></p8>
+        <div>
+            <p21><br><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSOcq1i0g1cNslkChRoYapLP83foAQChSr-118GQ0udPamgukaQHyrQDtPKC5M09Fu-dtw3xecBmyJe/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </p21>
+        </div>
+        </div>
+        <div>
+            <p9><br><b>Presentation Video</b></p9>
+            <div><p21><br><iframe width="560" height="315" src="https://www.youtube.com/embed/BQ9e1B1entY?si=XqqK1CClpuUFJ4Xj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p21></div>
+        </div>
+        <br>
+        <div>
+        <p5><b>References</b></p5>
+            <div>
+                <p14>
+
+                    <div><br>
+                        [1] Carruba, V., Aljbaae, S., Domingos, R.C. et al. Machine learning applied to asteroid dynamics. Celest Mech Dyn Astron 134, 36 (2022). <a href="https://doi.org/10.1007/s10569-022-10088-2">https://doi.org/10.1007/s10569-022-10088-2.</a> 
+                    </div>
+                    <div>
+                        <br>[2] M. Azadmanesh, J. Roshanian, and M. Hassanalian, “On the importance of studying asteroids: A comprehensive review,” Progress in Aerospace Sciences, vol. 142, p. 100957, Oct. 2023, doi: <a href="https://doi.org/10.1016/j.paerosci.2023.100957">https://doi.org/10.1016/j.paerosci.2023.100957.</a>
+                    </div>
+                    <div>
+                        <br>[3] G. Francisco Martha de Souza, A. C. Netto, A. Henrique de Andrade Melani, M. Angelo de Carvalho Michalski, and R. Favarão da Silva, “Engineering systems’ fault diagnosis methods,” in Reliability Analysis and Asset Management of Engineering Systems, Elsevier, 2022, pp. 165–187
+                    </div>
+                </p14>
+            </div>
+        </div>
+        <br>
+        <div>
+        <p5><b>Files</b></p5>
+            <div>
+            <p14>
+                    <a href="https://colab.research.google.com/drive/1fb5-ICmLnYhKRV7dDb1sq0piurTqrQZb?usp=sharing" style="font-size: 20px;">Link to ipynb file</a>
+                <br>
+            </p14>
+            </div>
+        </div>
+</body>
+</html>

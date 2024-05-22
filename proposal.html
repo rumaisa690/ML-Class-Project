@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Project Proposal</title>
+    <style>
+        h1 {
+            text-align: Center;
+            font-size: 35px;
+            -webkit-text-fill-color: blueviolet;
+        }
+        p1, p2, p3, p4, p5, p6, p7, p8, p9 {
+            font-size: 20px;
+            font-style: bold;
+        }
+        p {
+            margin-left: 1400px;
+            font-size: 17px;
+        }
+        tr {
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <p>
+        <a href="index.html">Go Home</a>
+    </p>
+    <h1>Project Proposal</h1>
+    <div>
+        <p1><b>Introduction/Background</b></p1>
+        <div>
+            <p10>
+                <br>
+                For generations, asteroid identification has been foundational in astronomical research. The classification of asteroids, particularly distinguishing those deemed hazardous, holds significant importance not only in protecting our planet from potential threats but also in deepening our comprehension of the universe. 
+                Our project aims to develop a model that classifies asteroids as hazardous or non-hazardous using data pre-processing methods and supervised learning algorithms. Utilizing data from the NASA API, our dataset includes features like absolute magnitude and relative velocity to develop a robust model that automatically identifies hazardous asteroids. 
+                
+            </p10>
+        </div>
+    </div>
+    <div>
+        <p2><br><b>Problem Definition</b></p2>
+        <div>
+            <p11>
+                <br>
+                With thousands of asteroids traversing our universe, the need for efficient methods to identify hazardous objects is important in supporting the astronomical field in research, exploration, and real-time monitoring. Understanding the risks posed by asteroids enables scientists to develop strategies to mitigate potential impacts, protecting life and infrastructure. Moreover, researching the characteristics of hazardous asteroids provides insights into their composition, behavior, and evolution, which contribute to broadening our understanding of space [2]. Furthermore, real time monitoring of these hazardous asteroids can help scientists to track the object's trajectory and evaluate potential impacts on Earth or satellites. Our project aims to use machine learning techniques to identify hazardous asteroids, protecting the Earth and supporting astronomical research.
+            </p11>
+        </div>
+    </div>
+    <div>
+        <p3><br><b>Methods</b></p3>
+        <div>
+            <p12>
+                <ul>
+                    <li>3+ Data pre-processing methods</li>
+                        <ul>
+                        <li>Feature Selection</li>
+                            <ul><li>Identifies most relevant features contributing to classifying a hazardous asteroid</li></li></lo></ul>
+                            <ul><li>Reduces redundant/irrelevant features</li></ul>
+                            <ul><li>Reduces chances of overfitting</li></ul>
+
+                            <li>Time Series Analysis</li>
+                            <ul><li>Categorizes dataset into components on attributes</li></ul>
+                            <ul><li>Identifies temporal patterns to discover trends</li></ul>
+                            <ul><li>Ex: Whether specific time periods associate with increased asteroid activity</li></ul>
+
+                            <li>Oversampling</li>
+                            <ul><li>Deals with dataset imbalance</li></ul>
+                            <ul><li>Generates synthetic minority class instances to enhance model training</li></ul>
+                            <ul><li>SMOTE for reducing bias, prediction reliability</li></ul>
+
+                            <li>Feature Scaling</li>
+                            <ul><li>Scaling to a similar range helps with model performance</li></ul>
+                            <ul><li>without, ML models will prioritize larger features & skew data</li></ul>
+
+                        </ul><li>Identify 3+ ML algorithms/models</li><ul>
+
+                            <li>All are supervised learning methods</li>
+                            <ul>
+                            <li>Random Forest</li>
+                            <ul><li>Constructs decision trees during training & outputs class mode or mean prediction of trees</li></ul>
+                            <ul><li>Gives feature importance & influential attributes</li></ul>
+                            <ul><li>sklearn.ensemble</li></ul>
+                            </ul>
+                            
+                            <ul>
+                            <li>Support Vector Machines</li>
+                            <ul><li>Effective with high-dimensional feature spaces</li></ul>
+                            <ul><li>Have been used in asteroid dynamics before [1]</li></ul>
+                            <ul><li>Maximizes margin between different classes, prevents overfitting</li></ul>
+                            <ul><li>sklearn.svm</li></ul>
+                            </ul>
+
+                            <ul>
+                            <li>Logistic Regression</li>
+                            <ul><li>Focuses on binary classification tasks</li></ul>
+                            <ul><li>Puts asteroids into categories </li></ul>
+                            <ul><li>Coefficients for each attribute to determine influence</li></ul>
+                            <ul><li>sklearn.linear_model</li></ul>
+                            </ul>
+
+                            <ul>
+                            <li>Naive Bayes</li>
+                            <ul><li>Assumes independence among the many features in dataset [3]</li></ul>
+                            <ul><li>Models conditional probability of each feature, robust to irrelevance</li></ul>
+                            <ul><li>‘MultinomialNB’ from sklearn.naive_bayes</li></ul>
+                            </ul>
+                            
+                        </ul>
+                        
+                </ul>
+            </p12>
+        </div>
+    </div>
+    <div>
+        <p4><b>Potential Results and Discussion</b></p4>
+        <div>
+            <p13>
+                <ul>
+                    <li>3+ Quantitative metrics</li>
+                        <ul>
+                            
+                            <li>The F1 score</li>
+                            <ul>
+                            <ul><li>useful for imbalanced classes</li></ul>
+                            <ul><li>Higher scores = better model performance</li></ul>
+                            </ul>
+
+                            
+                            <li>Logarithmic loss</li>
+                            <ul>
+                            <ul><li>confident incorrect predicts</li></ul>
+                            <ul><li>model calibration and discrimination ability</li></ul>
+                            </ul>
+
+                            
+                            <li>The Area Under the Curve (AUC)</li>
+                            <ul>
+                            <ul><li>quantifies classifier performance across thresholds, assess discrimination ability.</li></ul>
+                            </ul>
+                        </ul>
+                    <li>Project goals</li>
+                        <ul>
+                            <li>Develop an efficient model for classifying hazardous asteroids, improving real-time monitoring</li>
+                            <li>Impact astronomy by automating asteroid identification, streamlining researchers' work. </li>
+                        </ul>
+                    <li>Expected results</li>
+                        <ul>
+                            <li>High accuracy in classifying asteroids with our chosen ML models </li>
+                            <li>Techniques like feature selection enhance identification, while naive bayes disregards irrelevant features</li>
+                            <li>Optimizing quantitative metrics like high F1 scores, lower logarithmic loss values, and higher AUC for a well-calibrated, high-performing model</li>
+                        </ul>
+                </ul>
+            </p13>
+        </div>
+    </div>
+    <div>
+        <p5><b>References</b></p5>
+        <div>
+            <p14>
+        
+                <div><br>
+                    [1] Carruba, V., Aljbaae, S., Domingos, R.C. et al. Machine learning applied to asteroid dynamics. Celest Mech Dyn Astron 134, 36 (2022). <a href="https://doi.org/10.1007/s10569-022-10088-2">https://doi.org/10.1007/s10569-022-10088-2.</a> 
+                </div>
+                <div>
+                    <br>[2] M. Azadmanesh, J. Roshanian, and M. Hassanalian, “On the importance of studying asteroids: A comprehensive review,” Progress in Aerospace Sciences, vol. 142, p. 100957, Oct. 2023, doi: <a href="https://doi.org/10.1016/j.paerosci.2023.100957">https://doi.org/10.1016/j.paerosci.2023.100957.</a>
+                </div>
+                <div>
+                    <br>[3] G. Francisco Martha de Souza, A. C. Netto, A. Henrique de Andrade Melani, M. Angelo de Carvalho Michalski, and R. Favarão da Silva, “Engineering systems’ fault diagnosis methods,” in Reliability Analysis and Asset Management of Engineering Systems, Elsevier, 2022, pp. 165–187
+                </div>
+            </p14>
+        </div>
+    </div>
+    <div>
+        <p6><br><b>Proposed Timeline</b></p6>
+        <div>
+            <p15>
+                <br>
+                    <a href="https://docs.google.com/spreadsheets/d/1XWseJ3W_MlCoIwANlkqVwRIXEJAhxAYA/edit#gid=1432696595" style="font-size: 20px;">GanttChart</a>
+                    <div>
+                        <img src="GanttChartt.png" alt="Team filled out a GanttChart" style="width:1000px;height:300px;">
+                    </div>
+                <br>
+            </p15>
+        </div>
+    </div>
+    <div>
+        <p7><br><b>Contribution Table</b></p7>
+        <div>
+            <br>
+            <p16>
+                <table border="1">
+                    <tr>
+                        <td style="background-color:rgb(181, 106, 251);"><b>Team Members</b></td>
+                        <td style="text-align: center; background-color:rgb(181, 106, 251);"><b>Tasks</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Mariam</td>
+                        <td style="text-align: center;">Project proposal goals, expected results, & added a reference </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Rumaisa</td>
+                        <td style="text-align: center;">Found dataset, added a reference, did 3 of the data pre-processing methods and all the ML algorithms/models</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Katerina</td>
+                        <td style="text-align: center;">Problem definition, uploaded content to Github Page</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Hira</td>
+                        <td style="text-align: center;">Created the Github Repo, set up & uploaded to Github Pages, 1 of the  Data pre-processing methods, all the Quantitative Metrics</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">Hana</td>
+                        <td style="text-align: center;">Introduction, added a reference to problem definition, & made video presentation</td>
+                    </tr>
+                </table>
+            </p16>
+        </div>
+    </div>
+    <div>
+        <p8><br><b>Presentation</b></p8>
+        <div>
+            <p17>
+                <br><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTe6IDMombCzqydroBqdNQjq409GdPs9pgYxN46lbJzi4WvSZ8hmnrUA-ub6F3lmeopL3C5AaoYwLs2/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </p17>
+        </div>
+    </div>
+    <div>
+        <p9><br><b>Presentation Video</b></p9>
+        <div>
+            <p18>
+                <br><iframe width="560" height="315" src="https://www.youtube.com/embed/qLeQPCBnzqE?si=gCFmWA2XULlNg7KN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </p18>
+        </div>
+    </div>
+   
+</body>
+</html>
